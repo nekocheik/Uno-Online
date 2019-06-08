@@ -11,35 +11,35 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-	display: block;
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
 ol, ul {
-	list-style: none;
+  list-style: none;
 }
 blockquote, q {
-	quotes: none;
+  quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+  content: '';
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -52,7 +52,31 @@ table {
   left: 0px;
   right: 0px;
   margin: auto;
-height: 80vh;
-width: 80vw;
-border: solid 1px black;
+  height: 80vh;
+  width: 80vw;
+  border: solid 1px black;
 }
+
+.pickaxe {
+  position: absolute;
+  top: 50%;
+  height: 175px;
+  left: -50px;
+  transform: translateY(-50%);
+}
+
+.card {
+  position: absolute;
+  height: 180px;
+  width: 120px;
+  &.red__0 {
+    background:url(../assets/UNO-Front.svg);
+    background-repeat: no-repeat;
+    background-position: -1250px 0px;
+    background-size: 1250px;
+  }
+  &.red__1 {
+    background:url(../assets/UNO-Front.svg) 0 0 no-repeat;
+    background-size: 1250px;
+  }
+} 

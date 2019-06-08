@@ -11,18 +11,16 @@ export class cards {
   
   createCards(){
     /// created the basic cards 
-
     // object of card number 
     let basicCard = cardList.typesOfCards.typeBasic ;
 
     for (var thecard in basicCard ) {
       for (let i = 0; i < cardList.chaceToGet.many ; i++) {
-        this.cards.push( new card( thecard , i ) )
+        console.log( thecard )
+        this.cards.push( new card( thecard , i , thecard ) )
       }
     }
-
     console.log(this.cards)
-
   };
 };
 
