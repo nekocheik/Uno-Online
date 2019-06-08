@@ -1,8 +1,8 @@
 export const cardList = {
   chaceToGet : {
-    many : 19 ,
-    medium : 8,
-    litel : 4 ,
+    many : 18 ,
+    medium : 7,
+    litel : 3 ,
   },
   typesOfCards : {
     typeBasic :{

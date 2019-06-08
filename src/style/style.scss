@@ -69,11 +69,14 @@ table {
   position: absolute;
   height: 180px;
   width: 120px;
+  display: inline-block; 
+  background-size: 1250px;
+  
   &.red__0 {
     background:url(../assets/UNO-Front.svg);
     background-repeat: no-repeat;
     background-position: -1250px 0px;
-    background-size: 1250px;
+
   }
   &.red__1 {
     background:url(../assets/UNO-Front.svg) 0 0 no-repeat;
