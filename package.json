@@ -1,0 +1,25 @@
+{
+  "name": "uno",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nekocheik/Uno-Online.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nekocheik/Uno-Online/issues"
+  },
+  "homepage": "https://github.com/nekocheik/Uno-Online#readme",
+  "dependencies": {
+    "parcel": "^1.12.3"
+  },
+  "devDependencies": {
+    "sass": "^1.21.0"
+  }
+}
