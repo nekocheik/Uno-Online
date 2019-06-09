@@ -10,7 +10,7 @@ export class Table{
     this.objectCards = new cards();
     this.pickaxe = new pickaxe( this.objectCards.cards );
     this.player = new Player();
-    this.uplands = c();
+    this.uplands = this.getUplands();
     this.render();
   }
   render(){
@@ -29,4 +29,7 @@ export class Table{
     }
   }
 
+  getUplands(){
+
+  }
 }
