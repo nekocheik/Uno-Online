@@ -13,7 +13,6 @@ export class Table{
     this.player = new Player();
     this.upland = this.getUpland();
     this.render();
-    console.log(this)
   }
 
   render(){
@@ -21,21 +20,25 @@ export class Table{
     this.element.appendChild( this.player.element );
     this.distributionOfcard();
     this.element.appendChild( this.upland.element )
-    console.log(this.upland.element)
   }
 
   distributionOfcard(){
     let numberCardsAtStart = 9 ;
     for (let i = 0; i <  numberCardsAtStart ; i++) {
-      this.pickaxe.cards[i].owner = this.player ;
+     this.pickaxe.cards[i].owner = this.player ;
      this.player.element.append( this.pickaxe.cards[i].element ) ;
+     this.player.cards[i] = this.pickaxe.cards[i] ;
+     //// remove aftet switch 
+     this.pickaxe.cards.splice(i,1)
     }
+    console.log(this)
   };
 
   getUpland(){
     /// the center of game 
     const Upland = {
      element :  document.createElement('div'),
+     cards : [] ,
     }
     Upland.element.className = 'upland';
     return Upland

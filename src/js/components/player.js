@@ -3,5 +3,6 @@ export class Player {
     this.element = document.createElement('div')
     this.element.className = 'Player';
     this.type = 'Player';
+    this.cards = [];
   }
 }
