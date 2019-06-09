@@ -1,12 +1,16 @@
 import { createBackground } from '../services/createBackground' ;
+// import { Table } from './table';
+// import { pickaxe } from './pickaxe';
+// import { Player } from './player';
 
 export class card{
 
-  constructor( card , number , color , owner ){
+  constructor( card , number , color , owner , table ){
     this.owner = owner;
+    this.table = table;
 
     /// element of dom
-    this.card = card ;
+    this.element = card ;
 
     /// this number of card
     this.number = number + 1 ;
@@ -52,12 +56,27 @@ export class card{
     // us the number for position of background 
     createBackground( this.element , this.number , this.colorNumber );
     this.element.addEventListener('click', ()=> {
-
+      this.append();
+      console.log('the click is fonctionnel')
     })
   };
 
+  append(){
+    if ( this.owner.type === 'Player' ) { this.table.upland.element.append( this.element )}
+    if ( this.owner.type === 'pickaxe' ) { this.table.player.element.append( this.element );}
+    this.changeOwner();
+  };
+
+  changeOwner(){
+    const parent = this.element.offsetParent.className ;
+    if ( parent === 'upland') { this.owner = this.table.upland}
+    if ( parent === 'pickaxe') { this.owner = this.table.pickaxe }
+    if ( parent === 'Player') { this.owner = this.table.player }
+    console.log( parent  , this.owner)
+  };
+
   addtype(){
-    if(this.card){
+    if( this.element ){
 
     }
   };

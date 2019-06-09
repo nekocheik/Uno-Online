@@ -2,6 +2,7 @@ export class pickaxe {
   constructor( cards ){
     this.cards = cards ;
     this.element = null;
+    this.type = 'pickaxe';
     this.render();
   }
   render(){

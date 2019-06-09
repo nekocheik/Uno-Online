@@ -2,10 +2,11 @@ import { card } from './card';
 import { cardList } from '../services/cardsList';
 
 export class cards {
-  constructor(){
+  constructor( table ){
     this.cards = [
       // all cards 
     ];
+    this.table = table ;
     this.createCards();
   };
   
@@ -16,7 +17,7 @@ export class cards {
 
     for (var thecard in basicCard ) {
       for (let i = 0; i < cardList.chaceToGet.many ; i++) {
-        this.cards.push( new card( thecard , i , thecard , this ) )
+        this.cards.push( new card( thecard , i , thecard , this , this.table ) )
       }
     }
 
