@@ -83,3 +83,18 @@ table {
     background-size: 1250px;
   }
 } 
+
+.Player{
+  justify-content: center;
+  height: 180px;
+  display: flex;
+  bottom: 0%;
+  margin: auto;
+  left: 0px;
+  right: 0px;
+  transform: translateY(50%);
+  position: absolute;
+  .card{
+    position: relative;
+  }
+}

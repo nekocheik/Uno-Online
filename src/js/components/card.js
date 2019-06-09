@@ -2,7 +2,9 @@ import { createBackground } from '../services/createBackground' ;
 
 export class card{
 
-  constructor( card , number , color ){
+  constructor( card , number , color , owner ){
+    this.owner = owner;
+
     /// element of dom
     this.card = card ;
 
@@ -50,7 +52,7 @@ export class card{
     // us the number for position of background 
     createBackground( this.element , this.number , this.colorNumber );
     this.element.addEventListener('click', ()=> {
-      
+
     })
   };
 

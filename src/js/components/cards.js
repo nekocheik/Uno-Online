@@ -16,10 +16,10 @@ export class cards {
 
     for (var thecard in basicCard ) {
       for (let i = 0; i < cardList.chaceToGet.many ; i++) {
-        this.cards.push( new card( thecard , i , thecard ) )
+        this.cards.push( new card( thecard , i , thecard , this ) )
       }
     }
-    
+
   };
 };
 
