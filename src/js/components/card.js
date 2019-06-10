@@ -24,7 +24,7 @@ export class card{
 
     /// add type if the card is special
     this.isSpecial = this.addtype();
-    this.render();
+    this.view();
 
   };
 
@@ -49,7 +49,7 @@ export class card{
 
   };
 
-  render(){
+  view(){
 
     this.element = document.createElement('section');
     this.element.className = 'card';
@@ -59,11 +59,11 @@ export class card{
     createBackground( this.element , this.number , this.colorNumber );
 
     this.element.addEventListener('click', ()=> {
-      this.view();
+      this.render();
     })
   };
 
-  view(){
+  render(){
     // get the newOwner 
     let newOwner = this.filterCard() ;
  
