@@ -4,5 +4,10 @@ export class Player {
     this.element.className = 'Player';
     this.type = 'Player';
     this.cards = [];
+    console.log(this)
+  }
+
+  setCard( card ){
+    this.cards.push(card)
   }
 }

@@ -22,12 +22,5 @@ export class cards {
     }
 
   };
-
-  getId( i , cardColor  ){
-    // if ( cardColor === 'red') { return i   }
-    // if ( cardColor === 'yellow') { return i + ( cardList.chaceToGet.many * 1 ) }
-    // if ( cardColor === 'blue') { return i + ( cardList.chaceToGet.many * 2 )  }
-    // if ( cardColor === 'green') { return i + ( cardList.chaceToGet.many * 3 )}
-  }
 };
 

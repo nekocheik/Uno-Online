@@ -14,7 +14,7 @@ export class card{
     this.element = card ;
 
     /// this number of card
-    this.number = number + 1 ;
+    this.number = 1 + number ;
     this.chageNumber();
 
     /// this color of card 
@@ -29,6 +29,7 @@ export class card{
   };
 
   changeColorNumber(){
+    ///// number is the position fot sprites
     if ( this.color === 'red' )  this.colorNumber = 0 ;
     if ( this.color === 'yellow' ) this.colorNumber = -175 ;
     if ( this.color === 'blue' ) this.colorNumber = -360 ;
@@ -57,47 +58,43 @@ export class card{
     // us the number for position of background 
     createBackground( this.element , this.number , this.colorNumber );
     this.element.addEventListener('click', ()=> {
-      this.append();
+      this.view();
     })
   };
 
-  append(){
-    if ( this.owner.type === 'Player' && this.hasCompatible() ) { 
-      this.table.upland.element.append( this.element )
-      ;}
-    if ( this.owner.type === 'pickaxe' ) { 
-      this.table.player.element.append( this.element )
-      this.table.player.element ;
-      };
-    this.changeOwner();
+  view(){
+    // get the newOwner 
+    let newOwner ;
+    console.log( this.owner)
+    if ( this.owner.type === 'Player' && this.hasCompatible() ) {  newOwner = this.table.upland };
+    if ( this.owner.type === 'pickaxe' ) { newOwner = this.table.player  ; }
+
+    this.changeOwner( newOwner );
+    this.owner.element.append( this.element );
   };
 
   hasCompatible(){
-    if ( this.color === this.color || 
-       ( this.number === this.number ) || 
-       ( this.isSpecial )  ) {
-        let position = this.table.player.cards.find( ( card )=> {
-          if ( card.id === this.id ) { return card }
-        });
+    console.log( this.number === this.table.upland.main.number )
+    if ( this.color === this.table.upland.main.color ||  this.number === this.table.upland.main.number  ){
+        // ||  is spacial !!!!!!!!!!!!
+        return true ;
+       }
+    };
 
-        console.log(position , 'ok')
-        // this.table.upland.find
-      return true ;
-    }
-    return false ;
-  };
-
-  changeOwner(){
-    const parent = this.element.offsetParent.className ;
-    if ( parent === 'upland') { this.owner = this.table.upland};
-    if ( parent === 'pickaxe') { this.owner = this.table.pickaxe };
-    if ( parent === 'Player') { this.owner = this.table.player };
+  changeOwner( newOwner ){
+    /// set the new owner 
+    this.owner.cards = this.owner.cards.filter( ( card , index ) => card.id !== this.id  );
+    this.owner = newOwner;
+    this.owner.setCard( this );
   };
 
   addtype(){
     if( this.element ){
       return true ;
     };
-  };
+  }
 
 }
+
+
+
