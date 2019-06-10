@@ -57,6 +57,7 @@ export class card{
 
     // us the number for position of background 
     createBackground( this.element , this.number , this.colorNumber );
+
     this.element.addEventListener('click', ()=> {
       this.view();
     })
@@ -64,28 +65,32 @@ export class card{
 
   view(){
     // get the newOwner 
-    let newOwner ;
-    console.log( this.owner)
-    if ( this.owner.type === 'Player' && this.hasCompatible() ) {  newOwner = this.table.upland };
-    if ( this.owner.type === 'pickaxe' ) { newOwner = this.table.player  ; }
+    let newOwner = this.filterCard() ;
+ 
+    if ( this.owner.type !==  newOwner.type  ) {
+      this.changeOwner( newOwner );
+      this.owner.element.append( this.element );
+    }
+  };
 
-    this.changeOwner( newOwner );
-    this.owner.element.append( this.element );
+  filterCard(){
+    if ( this.owner.type === 'Player' && this.hasCompatible() ) {  return this.table.upland };
+    if ( this.owner.type === 'pickaxe' ) { return this.table.player  ; }
   };
 
   hasCompatible(){
-    console.log( this.number === this.table.upland.main.number )
-    if ( this.color === this.table.upland.main.color ||  this.number === this.table.upland.main.number  ){
-        // ||  is spacial !!!!!!!!!!!!
-        return true ;
-       }
+    if ( this.color === this.table.upland.main.color 
+      ||  this.number === this.table.upland.main.number  
+      ){ return true };
     };
 
   changeOwner( newOwner ){
     /// set the new owner 
-    this.owner.cards = this.owner.cards.filter( ( card , index ) => card.id !== this.id  );
-    this.owner = newOwner;
-    this.owner.setCard( this );
+    this.owner.cards = this.owner.cards.filter( card  => card.id !== this.id  );
+    if ( this.owner !== newOwner ) {
+      this.owner = newOwner;
+      this.owner.setCard( this );
+    }
   };
 
   addtype(){
