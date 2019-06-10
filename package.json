@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/nekocheik/Uno-Online#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "parcel": "^1.12.3"
   },
   "devDependencies": {

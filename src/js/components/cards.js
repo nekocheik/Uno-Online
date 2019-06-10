@@ -1,5 +1,6 @@
 import { card } from './card';
 import { cardList } from '../services/cardsList';
+import { Mix } from '../services/mix';
 
 export class cards {
   constructor( table ){
@@ -20,6 +21,10 @@ export class cards {
         this.cards.push( new card( ( this.cards.length  ) , thecard , i , thecard , this , this.table ) )
       }
     }
+
+    this.cards = Mix(this.cards)
+    /// Mix a card 
+
 
   };
 };
