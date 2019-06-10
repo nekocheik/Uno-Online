@@ -5,6 +5,7 @@ import { Player } from './player';
 // import { } from '';
 
 export class Table{
+  /////////:
   
   constructor(){
     this.element = document.querySelector('.table')
@@ -13,14 +14,14 @@ export class Table{
     this.player = new Player();
     this.upland = this.getUpland();
     this.render();
-  }
+  };
   
   render(){
     this.element.appendChild( this.pickaxe.element );
     this.element.appendChild( this.player.element );
     this.distributionOfcard();
     this.element.appendChild( this.upland.element )
-  }
+  };
   
   distributionOfcard(){
     let numberCardsAtStart = 9 ;
@@ -31,16 +32,14 @@ export class Table{
       
       //// remove aftet switch 
       this.pickaxe.cards.splice(i,1)
-    }
+    };
     
     //  initialisation of upland
     this.upland.element.appendChild( this.pickaxe.cards[0].element )
     this.upland.cards[0] = this.pickaxe.cards[0];
     this.upland.main = this.pickaxe.cards[0];
     this.pickaxe.cards.splice( 0 , 1 )
-    
-    
-    console.log(this)
+
   };
   
   getUpland(){
@@ -53,9 +52,8 @@ export class Table{
         this.main = this.cards[ this.cards.length - 1 ] ;
       },
       setCard( card ){
-        this.cards.push(card)
-        this.main = card ;
-        console.log(this.main)
+        this.cards.push(card);
+        this.main = card;
       },
     };
 
@@ -63,4 +61,7 @@ export class Table{
     return Upland
   }
   
+
+
+  /////////
 }
