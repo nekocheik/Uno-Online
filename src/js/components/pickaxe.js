@@ -9,8 +9,8 @@ export class pickaxe {
     this.element = document.createElement('div')
     this.element.className = 'pickaxe';
     this.cards.forEach( card => {
-      this.element.appendChild(card.element)
-      card.owner = this ;
+    this.element.appendChild(card.element)
+    card.owner = this ;
     });
     console.log(this)
   };

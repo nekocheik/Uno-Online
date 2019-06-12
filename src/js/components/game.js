@@ -13,7 +13,7 @@ export class game {
     let table = this.table.pickaxe.cards ;
     this.socket.emit( 'table' ,    CircularJSON.stringify( table  )  );
     this.socket.on( 'null', function ( data ) {
-      console.log( CircularJSON.parse(data))
+      console.log( CircularJSON.parse(data) );
     })
   }
 }

@@ -20,7 +20,7 @@ export class card{
     /// this color of card 
     this.color = color;
     this.colorNumber = null;
-    this.changeColorNumber()
+    this.changeColorNumber();
 
     /// add type if the card is special
     this.isSpecial = this.addtype();
@@ -99,7 +99,7 @@ export class card{
     };
   }
 
-}
+};
 
 
 

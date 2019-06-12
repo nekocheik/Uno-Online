@@ -20,7 +20,7 @@ export class Table{
     this.element.appendChild( this.pickaxe.element );
     this.element.appendChild( this.player.element );
     this.distributionOfcard();
-    this.element.appendChild( this.upland.element )
+    this.element.appendChild( this.upland.element );
   };
   
   distributionOfcard(){
@@ -31,14 +31,14 @@ export class Table{
       this.player.cards[i] = this.pickaxe.cards[i] ;
       
       //// remove aftet switch 
-      this.pickaxe.cards.splice(i,1)
+      this.pickaxe.cards.splice(i,1);
     };
     
     //  initialisation of upland
     this.upland.element.appendChild( this.pickaxe.cards[0].element )
     this.upland.cards[0] = this.pickaxe.cards[0];
     this.upland.main = this.pickaxe.cards[0];
-    this.pickaxe.cards.splice( 0 , 1 )
+    this.pickaxe.cards.splice( 0 , 1 );
 
   };
   
@@ -58,7 +58,7 @@ export class Table{
     };
 
     Upland.element.className = 'upland';
-    return Upland
+    return Upland ;
   }
   
 
