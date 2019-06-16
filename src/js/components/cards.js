@@ -3,15 +3,18 @@ import { cardList } from '../services/cardsList';
 import { Mix } from '../services/mix';
 
 export class cards {
-  constructor( table ){
+  constructor( table){
     this.cards = [
       // all cards 
-    ];
+     ]
     this.table = table ;
     this.createCards();
   };
-  
+
   createCards(){
+    if (this.cards.length > 0 ) { 
+      this.getCards()
+      return }
     /// created the basic cards 
     // object of card number 
     let basicCard = cardList.typesOfCards.typeBasic ;
@@ -24,8 +27,6 @@ export class cards {
 
     this.cards = Mix(this.cards)
     /// Mix a card 
-
-
   };
 };
 

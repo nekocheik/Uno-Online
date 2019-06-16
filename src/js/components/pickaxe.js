@@ -12,6 +12,5 @@ export class pickaxe {
     this.element.appendChild(card.element)
     card.owner = this ;
     });
-    console.log(this)
   };
 }

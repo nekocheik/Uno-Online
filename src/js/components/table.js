@@ -7,8 +7,8 @@ import { Player } from './player';
 export class Table{
   /////////:
   
-  constructor(){
-    this.element = document.querySelector('.table')
+  constructor( table ){      
+    this.element = document.querySelector('.table');
     this.objectCards = new cards(this);
     this.pickaxe = new pickaxe( this.objectCards.cards );
     this.player = new Player();
@@ -21,6 +21,20 @@ export class Table{
     this.element.appendChild( this.player.element );
     this.distributionOfcard();
     this.element.appendChild( this.upland.element );
+  };
+
+
+  getAnotherTable( data ){
+    for (let i = 0; i <   data.objectCards.cards.length; i++) {
+      let newCard = data.objectCards.cards[i];
+      // console.log( this.objectCards.cards[i] , data.objectCards.cards[i] 
+      this.objectCards.cards[i].id = newCard.id ;
+      this.objectCards.cards[i].number = newCard.number ;
+      this.objectCards.cards[i].color = newCard.color;
+      this.objectCards.cards[i].colorNumber = newCard.colorNumber  ;
+      this.objectCards.cards[i].view(newCard.owner.type);
+    }
+    console.log( this.objectCards.cards[0] , data.objectCards.cards[0] )
   };
   
   distributionOfcard(){
@@ -39,7 +53,7 @@ export class Table{
     this.upland.cards[0] = this.pickaxe.cards[0];
     this.upland.main = this.pickaxe.cards[0];
     this.pickaxe.cards.splice( 0 , 1 );
-
+    
   };
   
   getUpland(){
@@ -56,12 +70,12 @@ export class Table{
         this.main = card;
       },
     };
-
+    
     Upland.element.className = 'upland';
     return Upland ;
   }
   
-
-
+  
+  
   /////////
 }

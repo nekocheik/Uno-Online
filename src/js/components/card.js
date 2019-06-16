@@ -8,6 +8,7 @@ export class card{
   constructor( id , card , number , color , owner , table ){
     this.id = id ;
     this.owner = owner;
+
     this.table = table;
 
     /// element of dom
@@ -25,7 +26,6 @@ export class card{
     /// add type if the card is special
     this.isSpecial = this.addtype();
     this.view();
-
   };
 
   changeColorNumber(){
@@ -49,7 +49,7 @@ export class card{
 
   };
 
-  view(){
+  view( owner ){
 
     this.element = document.createElement('section');
     this.element.className = 'card';
@@ -59,19 +59,38 @@ export class card{
     createBackground( this.element , this.number , this.colorNumber );
 
     this.element.addEventListener('click', ()=> {
-      this.render();
+      this.render( owner );
     })
   };
 
-  render(){
+  render( owner ){
     // get the newOwner 
     let newOwner = this.filterCard() ;
  
-    if ( this.owner.type !==  newOwner.type  ) {
+    if ( this.owner.type !==  newOwner.type  && !owner ) {
       this.changeOwner( newOwner );
       this.owner.element.append( this.element );
     }
+    if(owner){
+      this.newOwner(owner)
+      this.changeOwner( this.owner );
+      this.owner.element.append( this.element );
+    }
   };
+
+  newOwner(owner){
+    console.log( owner )
+    if(owner === 'pickaxe' ){
+      this.owner = this.table.pickaxe ;
+    }
+    if(owner === 'Player' ){
+      this.owner = this.table.player ;
+    }
+    if(owner === 'upland' ){
+      this.owner = this.table.upland ;
+    }
+  }
+
 
   filterCard(){
     if ( this.owner.type === 'Player' && this.hasCompatible() ) {  return this.table.upland };
