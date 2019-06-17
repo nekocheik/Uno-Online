@@ -25,6 +25,10 @@ export class Table{
 
 
   getAnotherTable( data ){
+    this.pickaxe.element = document.querySelector('.pickaxe');
+    this.player.element = document.querySelector('.Player');
+    this.upland.element = document.querySelector('.upland');
+
     for (let i = 0; i <   data.objectCards.cards.length; i++) {
       let newCard = data.objectCards.cards[i];
       // console.log( this.objectCards.cards[i] , data.objectCards.cards[i] 
@@ -32,9 +36,13 @@ export class Table{
       this.objectCards.cards[i].number = newCard.number ;
       this.objectCards.cards[i].color = newCard.color;
       this.objectCards.cards[i].colorNumber = newCard.colorNumber  ;
-      this.objectCards.cards[i].view(newCard.owner.type);
+      this.objectCards.cards[i].getNewElement();
+      // this.objectCards.cards[i].view(newCard.owner.type);  
+      this.objectCards.cards[i].element.addEventListener( 'mouseover', ()=>{
+        console.log(      this.objectCards.cards[i].element)
+      })
     }
-    console.log( this.objectCards.cards[0] , data.objectCards.cards[0] )
+
   };
   
   distributionOfcard(){

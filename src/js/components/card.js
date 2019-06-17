@@ -12,7 +12,7 @@ export class card{
     this.table = table;
 
     /// element of dom
-    this.element = card ;
+    this.element = null ;
 
     /// this number of card
     this.number = 1 + number ;
@@ -51,9 +51,11 @@ export class card{
 
   view( owner ){
 
-    this.element = document.createElement('section');
-    this.element.className = 'card';
-    this.element.classList.add(`${this.color}__${this.number}`)
+    if (!this.element) {
+      this.element = document.createElement('section');
+      this.element.className = 'card';
+      this.element.classList.add(`${this.color}__${this.number}`)
+    }
 
     // us the number for position of background 
     createBackground( this.element , this.number , this.colorNumber );
@@ -61,6 +63,16 @@ export class card{
     this.element.addEventListener('click', ()=> {
       this.render( owner );
     })
+  };
+
+  getNewElement(){
+    this.element = document.querySelector(`.${this.color}__${this.number}`);
+    document.querySelector(`.${this.color}__${this.number}`).addEventListener('click', function (){
+      console.log('ok')
+    });
+
+
+    // this.view();
   };
 
   render( owner ){
