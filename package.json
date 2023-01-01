@@ -20,7 +20,7 @@
   "dependencies": {
     "circular-json": "^0.5.9",
     "express": "^4.17.1",
-    "parcel": "^1.12.3",
+    "parcel": "^2.8.2",
     "socket.io": "^2.2.0"
   },
   "devDependencies": {
